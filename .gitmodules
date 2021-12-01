@@ -1,0 +1,3 @@
+[submodule "libmayuri"]
+	path = libmayuri
+	url = git@github.com:nemuTUI/libmayuri.git
