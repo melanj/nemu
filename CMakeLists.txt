@@ -112,7 +112,7 @@ pkg_check_modules(JSONC REQUIRED json-c)
 target_link_libraries(
   ${PROJECT_NAME} ${CURSES_LIBRARIES} ${SQLITE3_LIBRARIES} ${JSONC_LINK_LIBRARIES}
   ${CMAKE_THREAD_LIBS_INIT} ${LIBUSB_1_LIBRARIES} ${UDEV_LIBRARIES}
-  ${RT_LIBRARY} ${Intl_LIBRARIES})
+  ${RT_LIBRARY} ${Intl_LIBRARIES} mayuri)
 include_directories(${CURSES_INCLUDE_PATH} ${SQLITE3_INCLUDE_DIR}
                     ${UDEV_INCLUDE_DIR} ${JSONC_INCLUDE_DIRS} ${Intl_INCLUDE_DIRS})
 include_directories(SYSTEM ${LIBUSB_1_INCLUDE_DIRS})
@@ -267,6 +267,8 @@ add_dependencies(${PROJECT_NAME} lang)
 
 add_subdirectory(man)
 add_dependencies(${PROJECT_NAME} man)
+
+add_subdirectory(libmayuri)
 
 # configure install
 set(NEMU_CONFIG_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.cfg.sample")
