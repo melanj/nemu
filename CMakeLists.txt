@@ -109,12 +109,15 @@ find_package(UDev REQUIRED)
 find_package(Intl REQUIRED)
 pkg_check_modules(JSONC REQUIRED json-c)
 
+set(LIBMAYIRU_INCLUDE_DIR "libmayuri/include")
+
 target_link_libraries(
   ${PROJECT_NAME} ${CURSES_LIBRARIES} ${SQLITE3_LIBRARIES} ${JSONC_LINK_LIBRARIES}
   ${CMAKE_THREAD_LIBS_INIT} ${LIBUSB_1_LIBRARIES} ${UDEV_LIBRARIES}
   ${RT_LIBRARY} ${Intl_LIBRARIES} mayuri)
 include_directories(${CURSES_INCLUDE_PATH} ${SQLITE3_INCLUDE_DIR}
-                    ${UDEV_INCLUDE_DIR} ${JSONC_INCLUDE_DIRS} ${Intl_INCLUDE_DIRS})
+                    ${UDEV_INCLUDE_DIR} ${JSONC_INCLUDE_DIRS}
+                    ${Intl_INCLUDE_DIRS} ${LIBMAYIRU_INCLUDE_DIR})
 include_directories(SYSTEM ${LIBUSB_1_INCLUDE_DIRS})
 
 add_definitions(-DNM_FULL_DATAROOTDIR="${CMAKE_INSTALL_FULL_DATAROOTDIR}")
